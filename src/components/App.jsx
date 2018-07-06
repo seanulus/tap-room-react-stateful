@@ -10,14 +10,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      clickedKeg: null,
       beersRemaining: 120
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
   }
 
-  handleBeersRemaining() {
-    this.setState(prevState => {
-      return {beersRemaining: prevState.beersRemaining -= 1}
+  handleBeersRemaining(keg) {
+    this.setState({
+      clickedKeg: keg,
+      beersRemaining: this.state.beersRemaining -= 1,
     });
   }
 

@@ -89,7 +89,6 @@ const masterKegList = [
 
 
 function BeersList(props){
-  console.log(masterKegList);
   return(
     <div>
       <style jsx>{`
