@@ -52,7 +52,7 @@ function Beers(props){
       </div>
       <div className='buttons-div'>
         <button className='button'>Edit</button>
-        <button onClick={props.onBeersRemaining} className='button'>Purchase</button>
+        <button onClick={()=>{props.onBeersRemaining({name: props.name, id:props.id});}} className='button'>Purchase</button>
       </div>
     </div>
   );
