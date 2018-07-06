@@ -16,8 +16,8 @@ class App extends React.Component {
   }
 
   handleBeersRemaining() {
-    this.setState({
-      beersRemaining: this.state.beersRemaining -= 1
+    this.setState(prevState => {
+      return {beersRemaining: prevState.beersRemaining -= 1}
     });
   }
 
