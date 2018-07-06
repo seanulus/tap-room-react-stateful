@@ -4,6 +4,7 @@ import BeersList from './BeersList';
 import MenuList from './MenuList';
 import Header from './Header';
 import Footer from './Footer';
+import Admin from './Admin';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path= '/beers' render={()=><BeersList onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining} clickedKeg={this.state.clickedKeg} />} />
           <Route exact path='/menu' component={MenuList} />
+          <Route exact path='/admin' component={Admin} />
         </Switch>
         <Footer/>
       </div>
