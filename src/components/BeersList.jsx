@@ -1,5 +1,6 @@
 import React from 'react';
 import Beers from './Beers';
+import PropTypes from 'prop-types';
 import hiWheel from '../assets/img/hi-wheel.jpg';
 import hamms from '../assets/img/hamms.jpeg';
 import newBelgium from '../assets/img/new-belgium.png';
@@ -86,7 +87,7 @@ const masterKegList = [
 
 
 
-function BeersList(){
+function BeersList(props){
   return(
     <div>
       <style jsx>{`
@@ -115,10 +116,15 @@ function BeersList(){
           price = {beer.price}
           remaining = {beer.remaining}
           image = {beer.image}
+          onBeersRemaining = {props.onBeersRemaining}
           key={index}/>
       )}
     </div>
   );
 }
+
+BeersList.propTypes = {
+  onBeersRemaining: PropTypes.func
+};
 
 export default BeersList;

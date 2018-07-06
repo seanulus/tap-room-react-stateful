@@ -51,7 +51,7 @@ function Beers(props){
       </div>
       <div className='buttons-div'>
         <button className='button'>Edit</button>
-        <button className='button'>Purchase</button>
+        <button onClick={props.onBeersRemaining} className='button'>Purchase</button>
       </div>
     </div>
   );
@@ -64,7 +64,8 @@ Beers.propTypes = {
   abv: PropTypes.string,
   price: PropTypes.string,
   remaining: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
+  onBeersRemaining: PropTypes.func
 };
 
 export default Beers;
