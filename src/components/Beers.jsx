@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function Beers(props){
+  console.log(props.clickedKeg);
   return (
     <div className='beers-container'>
       <style jsx>{`
@@ -48,7 +49,7 @@ function Beers(props){
       </div>
       <div className='price'>
         <p>${props.price}</p>
-        <p>Beers Left: {props.clickedKegBeers}</p>
+        <p>Beers Left: {props.clickedKeg.remaining}</p>
       </div>
       <div className='buttons-div'>
         <button className='button'>Edit</button>
@@ -69,7 +70,6 @@ Beers.propTypes = {
   onBeersRemaining: PropTypes.func,
   id: PropTypes.string,
   clickedKeg: PropTypes.object,
-  clickedKegBeers: PropTypes.number
 };
 
 export default Beers;

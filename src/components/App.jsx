@@ -10,9 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickedKeg: null,
+      clickedKeg: {remaining: 120},
       beersRemaining: 120,
-      clickedKegBeers: 0
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
   }
@@ -20,8 +19,11 @@ class App extends React.Component {
   handleBeersRemaining(keg) {
     this.setState({
       clickedKeg: keg,
-      clickedKegBeers: keg.remaining -= 1
+      // beersRemaining: this.state.beersRemaining -= 1
     });
+    if (keg.id === keg.id){
+      keg.remaining -= 1;
+    }
   }
 
   render() {
@@ -35,7 +37,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path= '/beers' render={()=><BeersList onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining} clickedKeg={this.state.clickedKeg} clickedKegBeers={this.state.clickedKegBeers}/>} />
+          <Route exact path= '/beers' render={()=><BeersList onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining} clickedKeg={this.state.clickedKeg} />} />
           <Route exact path='/menu' component={MenuList} />
         </Switch>
         <Footer/>
