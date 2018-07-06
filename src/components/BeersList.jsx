@@ -119,6 +119,7 @@ function BeersList(props){
           image = {beer.image}
           onBeersRemaining = {props.onBeersRemaining}
           clickedKeg = {props.clickedKeg}
+          clickedKegBeers = {props.clickedKegBeers}
           id={beer.id}
           key={beer.id}/>
       )}
@@ -129,7 +130,8 @@ function BeersList(props){
 BeersList.propTypes = {
   onBeersRemaining: PropTypes.func,
   remaining: PropTypes.number,
-  clickedKeg: PropTypes.object
+  clickedKeg: PropTypes.object,
+  clickedKegBeers: PropTypes.number
 };
 
 export default BeersList;
