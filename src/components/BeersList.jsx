@@ -17,7 +17,8 @@ const masterKegList = [
     description: 'Sparkling Wine',
     abv: '6.8%',
     price: '7',
-    image: hiWheel
+    image: hiWheel,
+    id: v4()
   },
   {
     name: 'Tart N Juicy',
@@ -25,7 +26,8 @@ const masterKegList = [
     description: 'Sour IPA',
     abv: '4.5%',
     price: '6',
-    image: epic
+    image: epic,
+    id: v4()
   },
   {
     name: 'Hamm\'s',
@@ -33,7 +35,8 @@ const masterKegList = [
     description: 'American Lager',
     abv: '4.7%',
     price: '3',
-    image: hamms
+    image: hamms,
+    id: v4()
   },
   {
     name: 'Prismatic',
@@ -41,7 +44,8 @@ const masterKegList = [
     description: 'Juicy IPA',
     abv:  '5.9%',
     price: '6',
-    image: ninkasi
+    image: ninkasi,
+    id: v4()
   },
   {
     name: 'Juicy Haze',
@@ -49,7 +53,8 @@ const masterKegList = [
     description: 'India Pale Ale',
     abv:  '7.5%',
     price: '6',
-    image: newBelgium
+    image: newBelgium,
+    id: v4()
   },
   {
     name: '8 Hop',
@@ -57,7 +62,8 @@ const masterKegList = [
     description: 'Pale Ale',
     abv:  '5.5%',
     price: '6',
-    image: newBelgium
+    image: newBelgium,
+    id: v4()
   },
   {
     name: '8 Hop',
@@ -65,7 +71,8 @@ const masterKegList = [
     description: 'Notorius',
     abv:  '11.5%',
     price: '6',
-    image: boneyard
+    image: boneyard,
+    id: v4()
   },
   {
     name: 'Sage Cider',
@@ -73,7 +80,8 @@ const masterKegList = [
     description: 'Dry Cider',
     abv:  '7.4%',
     price: '6',
-    image: wildcraft
+    image: wildcraft,
+    id: v4()
   }
 ];
 
@@ -81,7 +89,7 @@ const masterKegList = [
 
 
 function BeersList(props){
-
+  console.log(masterKegList);
   return(
     <div>
       <style jsx>{`
@@ -102,7 +110,7 @@ function BeersList(props){
           }
       `}</style>
 
-      {masterKegList.map((beer, index) =>
+      {masterKegList.map((beer) =>
         <Beers brewer = {beer.brewer}
           name = {beer.name}
           description = {beer.description}
@@ -111,7 +119,8 @@ function BeersList(props){
           remaining = {props.remaining}
           image = {beer.image}
           onBeersRemaining = {props.onBeersRemaining}
-          key={index}/>
+          id={beer.id}
+          key={beer.id}/>
       )}
     </div>
   );

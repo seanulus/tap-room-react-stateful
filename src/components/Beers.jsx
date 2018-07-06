@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function Beers(props){
+  console.log(props.id);
   return (
     <div className='beers-container'>
       <style jsx>{`
@@ -66,7 +67,8 @@ Beers.propTypes = {
   price: PropTypes.string,
   remaining: PropTypes.number,
   image: PropTypes.string,
-  onBeersRemaining: PropTypes.func
+  onBeersRemaining: PropTypes.func,
+  id: PropTypes.string
 };
 
 export default Beers;
