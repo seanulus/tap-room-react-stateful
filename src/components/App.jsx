@@ -10,13 +10,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      remaining: 120
+      beersRemaining: 120
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
   }
 
   handleBeersRemaining() {
-    alert('You clicked the Purchase button');
+    this.setState({
+      beersRemaining: this.state.beersRemaining -= 1
+    });
   }
 
   render() {
@@ -30,7 +32,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path= '/beers' render={()=><BeersList onBeersRemaining={this.handleBeersRemaining} />} />
+          <Route exact path= '/beers' render={()=><BeersList onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining}/>} />
           <Route exact path='/menu' component={MenuList} />
         </Switch>
         <Footer/>

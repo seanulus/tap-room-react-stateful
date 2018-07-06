@@ -63,7 +63,7 @@ Beers.propTypes = {
   description: PropTypes.string,
   abv: PropTypes.string,
   price: PropTypes.string,
-  remaining: PropTypes.string,
+  remaining: PropTypes.number,
   image: PropTypes.string,
   onBeersRemaining: PropTypes.func
 };

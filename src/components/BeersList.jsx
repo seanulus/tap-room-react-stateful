@@ -1,6 +1,7 @@
 import React from 'react';
 import Beers from './Beers';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import hiWheel from '../assets/img/hi-wheel.jpg';
 import hamms from '../assets/img/hamms.jpeg';
 import newBelgium from '../assets/img/new-belgium.png';
@@ -16,7 +17,6 @@ const masterKegList = [
     description: 'Sparkling Wine',
     abv: '6.8%',
     price: '7',
-    remaining: '20',
     image: hiWheel
   },
   {
@@ -25,7 +25,6 @@ const masterKegList = [
     description: 'Sour IPA',
     abv: '4.5%',
     price: '6',
-    remaining: '60',
     image: epic
   },
   {
@@ -34,7 +33,6 @@ const masterKegList = [
     description: 'American Lager',
     abv: '4.7%',
     price: '3',
-    remaining: '65',
     image: hamms
   },
   {
@@ -43,7 +41,6 @@ const masterKegList = [
     description: 'Juicy IPA',
     abv:  '5.9%',
     price: '6',
-    remaining: '75',
     image: ninkasi
   },
   {
@@ -52,7 +49,6 @@ const masterKegList = [
     description: 'India Pale Ale',
     abv:  '7.5%',
     price: '6',
-    remaining: '18',
     image: newBelgium
   },
   {
@@ -61,7 +57,6 @@ const masterKegList = [
     description: 'Pale Ale',
     abv:  '5.5%',
     price: '6',
-    remaining: '58',
     image: newBelgium
   },
   {
@@ -70,7 +65,6 @@ const masterKegList = [
     description: 'Notorius',
     abv:  '11.5%',
     price: '6',
-    remaining: '64',
     image: boneyard
   },
   {
@@ -79,7 +73,6 @@ const masterKegList = [
     description: 'Dry Cider',
     abv:  '7.4%',
     price: '6',
-    remaining: '48',
     image: wildcraft
   }
 ];
@@ -88,6 +81,7 @@ const masterKegList = [
 
 
 function BeersList(props){
+
   return(
     <div>
       <style jsx>{`
@@ -114,7 +108,7 @@ function BeersList(props){
           description = {beer.description}
           abv = {beer.abv}
           price = {beer.price}
-          remaining = {beer.remaining}
+          remaining = {props.remaining}
           image = {beer.image}
           onBeersRemaining = {props.onBeersRemaining}
           key={index}/>
@@ -124,7 +118,8 @@ function BeersList(props){
 }
 
 BeersList.propTypes = {
-  onBeersRemaining: PropTypes.func
+  onBeersRemaining: PropTypes.func,
+  remaining: PropTypes.number
 };
 
 export default BeersList;
