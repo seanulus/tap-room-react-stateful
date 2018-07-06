@@ -18,10 +18,9 @@ class App extends React.Component {
 
   handleBeersRemaining(keg) {
     this.setState({
-      clickedKeg: keg.id,
+      clickedKeg: keg,
       beersRemaining: keg.remaining -= 1
     });
-    console.log(keg);
   }
 
   render() {

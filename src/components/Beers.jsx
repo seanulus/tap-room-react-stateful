@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function Beers(props){
+  console.log(props.clickedKeg);
   return (
     <div className='beers-container'>
       <style jsx>{`
