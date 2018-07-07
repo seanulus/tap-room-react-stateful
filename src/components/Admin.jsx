@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Admin() {
+function Admin(props) {
   let _brewer = null;
   let _name = null;
   let _abv = null;
@@ -11,6 +12,7 @@ function Admin() {
 
   function handleNewKegSubmission(event) {
     event.preventDefault();
+    props.onAddingNewKeg({brewer: _brewer.value, name: _name.value, abv: _abv.value, price: _price.value, description: _description.value, remaining: _remaining.value, photo: _photo.value});
     _brewer.value = '';
     _name.value = '';
     _abv.value = '';
@@ -47,7 +49,7 @@ function Admin() {
         }
 
       `}</style>
-      <form>
+      <form onSubmit={handleNewKegSubmission}>
         <input
           type='text'
           id='brewer'
@@ -88,5 +90,9 @@ function Admin() {
     </div>
   );
 }
+
+Admin.propTypes = {
+  onAddingNewKeg: PropTypes.func
+};
 
 export default Admin;

@@ -99,6 +99,13 @@ class App extends React.Component {
       beersRemaining: 120,
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
+    this.handleAddingNewKeg = this.handleAddingNewKeg.bind(this);
+  }
+
+  handleAddingNewKeg(newKeg) {
+    let newMasterKegList = this.state.masterKegList.slice();
+    newMasterKegList.push(newKeg);
+    this.setState({masterKegList: newMasterKegList});
   }
 
   handleBeersRemaining(keg) {
@@ -124,7 +131,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path= '/beers' render={()=><BeersList kegList={this.state.masterKegList} onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining} clickedKeg={this.state.clickedKeg} />} />
           <Route exact path='/menu' component={MenuList} />
-          <Route exact path='/admin' component={Admin} />
+          <Route exact path='/admin' render={()=><Admin onAddingNewKeg={this.handleAddingNewKeg} />} />
         </Switch>
         <Footer/>
       </div>

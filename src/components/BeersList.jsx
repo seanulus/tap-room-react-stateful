@@ -27,7 +27,7 @@ function BeersList(props){
           }
       `}</style>
 
-    {props.kegList.map((beer) =>
+      {props.kegList.map((beer) =>
         <Beers brewer = {beer.brewer}
           name = {beer.name}
           description = {beer.description}
