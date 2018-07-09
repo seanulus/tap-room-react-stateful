@@ -34,12 +34,12 @@ function BeersList(props){
           description = {beer.description}
           abv = {beer.abv}
           price = {beer.price}
-          remaining = {props.remaining}
+          remaining = {beer.remaining}
           image = {beer.image}
           onBeersRemaining = {props.onBeersRemaining}
           clickedKeg = {props.kegList[props.clickedKeg]}
-          id = {beer.id}
-          key={beer.id}/>;
+          id = {beerId}
+          key={beerId}/>;
       })}
     </div>
   );

@@ -27,6 +27,7 @@ class App extends React.Component {
           abv: '6.8',
           price: '7',
           image: hiWheel,
+          remaining: 120
         },
         '2': {
           name: 'Tart N Juicy',
@@ -35,6 +36,7 @@ class App extends React.Component {
           abv: '4.5',
           price: '6',
           image: epic,
+          remaining: 120
         },
         '3': {
           name: 'Hamm\'s',
@@ -43,6 +45,7 @@ class App extends React.Component {
           abv: '4.7',
           price: '3',
           image: hamms,
+          remaining: 120
         },
         '4': {
           name: 'Prismatic',
@@ -51,6 +54,7 @@ class App extends React.Component {
           abv:  '5.9',
           price: '6',
           image: ninkasi,
+          remaining: 120
         },
         '5': {
           name: 'Juicy Haze',
@@ -59,6 +63,7 @@ class App extends React.Component {
           abv:  '7.5',
           price: '6',
           image: newBelgium,
+          remaining: 120
         },
         '6': {
           name: '8 Hop',
@@ -67,6 +72,7 @@ class App extends React.Component {
           abv:  '5.5',
           price: '6',
           image: newBelgium,
+          remaining: 120
         },
         '7': {
           name: '8 Hop',
@@ -75,6 +81,7 @@ class App extends React.Component {
           abv:  '11.5',
           price: '6',
           image: boneyard,
+          remaining: 120
         },
         '8': {
           name: 'Sage Cider',
@@ -83,11 +90,11 @@ class App extends React.Component {
           abv:  '7.4',
           price: '6',
           image: wildcraft,
+          remaining: 120
         }
       },
 
       clickedKeg: null,
-      beersRemaining: 120,
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
     this.handleAddingNewKeg = this.handleAddingNewKeg.bind(this);
@@ -100,12 +107,13 @@ class App extends React.Component {
     this.setState({masterKegList: newMasterKegList});
   }
 
-  handleBeersRemaining(id) {
-    this.setState({clickedKeg: id});
+  handleBeersRemaining(beerId) {
+    this.state.masterKegList[beerId].remaining -= 1;
+    this.setState({clickedKeg: beerId});
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state.masterKegList);
     return (
       <div>
         <style jsx>{`
@@ -115,7 +123,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path= '/beers' render={()=><BeersList kegList={this.state.masterKegList} onBeersRemaining={this.handleBeersRemaining} remaining={this.state.beersRemaining} clickedKeg={this.state.clickedKeg} />} />
+          <Route exact path= '/beers' render={()=><BeersList kegList={this.state.masterKegList} onBeersRemaining={this.handleBeersRemaining} clickedKeg={this.state.clickedKeg} />} />
           <Route exact path='/menu' component={MenuList} />
           <Route exact path='/admin' render={()=><Admin onAddingNewKeg={this.handleAddingNewKeg} />} />
         </Switch>
