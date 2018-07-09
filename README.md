@@ -3,10 +3,10 @@
 #### By Sean McDermott
 
 ## Description
-* This is our week one code review for the React portion of our course. The goal of this review is to take a previous project we made in angular and clone a static version that includes client-side routing, styling with css objects/modules, propTypes, and components for modular UI elements.
+* This is our week two code review for the React portion of our course. The goal of this review is to add state to the static project we began last week.
 
 ## Component Tree
-![Sketch](./src/assets/img/tree.jpg)
+![Sketch](./src/assets/img/stateful-tree.jpg)
 
 ## Specifications
 
@@ -15,11 +15,13 @@
 * Successfully styled with CSS objects and modules.
 * Successfully used propTypes and JSX Looping.
 * Created modular components for a slightly modular UI.
+* Successfully added state to App component and used unidirectional flow to send this into child components.
+* Successfully added callbacks to retrieve information from children and display in other components using the same data.
 
 
 ## Setup/Installation Requirements
 
-* To view project code, _clone repository from_ https://github.com/seanulus/tap-room-react
+* To view project code, _clone repository from_ https://github.com/seanulus/tap-room-react-stateful
 * Install Node.js
 * Open terminal, navigate to project root directory and run npm install.
 
@@ -46,9 +48,6 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:8080/`. The 
 * React
 * Javascript
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## License
 
