@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function Admin(props) {
   let _brewer = null;
@@ -12,7 +13,7 @@ function Admin(props) {
 
   function handleNewKegSubmission(event) {
     event.preventDefault();
-    props.onAddingNewKeg({brewer: _brewer.value, name: _name.value, abv: _abv.value, price: _price.value, description: _description.value, remaining: _remaining.value, photo: _photo.value});
+    props.onAddingNewKeg({brewer: _brewer.value, name: _name.value, abv: _abv.value, price: _price.value, description: _description.value, remaining: _remaining.value, photo: _photo.value, id: v4()});
     _brewer.value = '';
     _name.value = '';
     _abv.value = '';

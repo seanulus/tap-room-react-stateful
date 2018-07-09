@@ -27,8 +27,9 @@ function BeersList(props){
           }
       `}</style>
 
-      {props.kegList.map((beer) =>
-        <Beers brewer = {beer.brewer}
+      {Object.keys(props.kegList).map(function(beerId) {
+        let beer = props.kegList[beerId];
+        return <Beers brewer = {beer.brewer}
           name = {beer.name}
           description = {beer.description}
           abv = {beer.abv}
@@ -36,10 +37,10 @@ function BeersList(props){
           remaining = {props.remaining}
           image = {beer.image}
           onBeersRemaining = {props.onBeersRemaining}
-          clickedKeg = {props.clickedKeg}
-          id={beer.id}
-          key={beer.id}/>
-      )}
+          clickedKeg = {props.kegList[props.clickedKeg]}
+          id = {beer.id}
+          key={beer.id}/>;
+      })}
     </div>
   );
 }
@@ -47,8 +48,8 @@ function BeersList(props){
 BeersList.propTypes = {
   onBeersRemaining: PropTypes.func,
   remaining: PropTypes.number,
-  clickedKeg: PropTypes.object,
-  kegList: PropTypes.array
+  clickedKeg: PropTypes.string,
+  kegList: PropTypes.object
 };
 
 export default BeersList;

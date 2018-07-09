@@ -44,7 +44,7 @@ function Beers(props){
         <h3>{props.brewer}</h3>
         <h3>{props.name}</h3>
         <h5>{props.description}</h5>
-        <p>{props.abv}</p>
+        <p>{props.abv}%</p>
       </div>
       <div className='price'>
         <p>${props.price}</p>
@@ -52,7 +52,7 @@ function Beers(props){
       </div>
       <div className='buttons-div'>
         <button className='button'>Edit</button>
-        <button onClick={()=>{props.onBeersRemaining({name: props.name, remaining: props.remaining, id: props.id});}} className='button'>Purchase</button>
+        <button onClick={()=> props.onBeersRemaining[props.id]} className='button'>Purchase</button>
       </div>
     </div>
   );
@@ -72,3 +72,5 @@ Beers.propTypes = {
 };
 
 export default Beers;
+
+// {props.onBeersRemaining({name: props.name, remaining: props.remaining, id: props.id});}

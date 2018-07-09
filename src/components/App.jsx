@@ -7,7 +7,6 @@ import Footer from './Footer';
 import Admin from './Admin';
 import { Switch, Route } from 'react-router-dom';
 
-import { v4 } from 'uuid';
 import hiWheel from '../assets/img/hi-wheel.jpg';
 import hamms from '../assets/img/hamms.jpeg';
 import newBelgium from '../assets/img/new-belgium.png';
@@ -20,82 +19,74 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: [
-        {
+      masterKegList: {
+        '1': {
           name: 'Ruby Zozzle',
           brewer: 'Hi-Wheel',
           description: 'Sparkling Wine',
-          abv: '6.8%',
+          abv: '6.8',
           price: '7',
           image: hiWheel,
-          id: v4()
         },
-        {
+        '2': {
           name: 'Tart N Juicy',
           brewer: 'Epic',
           description: 'Sour IPA',
-          abv: '4.5%',
+          abv: '4.5',
           price: '6',
           image: epic,
-          id: v4()
         },
-        {
+        '3': {
           name: 'Hamm\'s',
           brewer: 'Miller/Coors',
           description: 'American Lager',
-          abv: '4.7%',
+          abv: '4.7',
           price: '3',
           image: hamms,
-          id: v4()
         },
-        {
+        '4': {
           name: 'Prismatic',
           brewer: 'Ninkasi',
           description: 'Juicy IPA',
-          abv:  '5.9%',
+          abv:  '5.9',
           price: '6',
           image: ninkasi,
-          id: v4()
         },
-        {
+        '5': {
           name: 'Juicy Haze',
           brewer: 'New Belgium',
           description: 'India Pale Ale',
-          abv:  '7.5%',
+          abv:  '7.5',
           price: '6',
           image: newBelgium,
-          id: v4()
         },
-        {
+        '6': {
           name: '8 Hop',
           brewer: 'New Belgium',
           description: 'Pale Ale',
-          abv:  '5.5%',
+          abv:  '5.5',
           price: '6',
           image: newBelgium,
-          id: v4()
         },
-        {
+        '7': {
           name: '8 Hop',
           brewer: 'Boneyard',
           description: 'Notorius',
-          abv:  '11.5%',
+          abv:  '11.5',
           price: '6',
           image: boneyard,
-          id: v4()
         },
-        {
+        '8': {
           name: 'Sage Cider',
           brewer: 'Wildcraft',
           description: 'Dry Cider',
-          abv:  '7.4%',
+          abv:  '7.4',
           price: '6',
           image: wildcraft,
-          id: v4()
         }
-      ],
+      },
 
-      clickedKeg: {remaining: 120},
+      clickedKeg: null,
       beersRemaining: 120,
     };
     this.handleBeersRemaining = this.handleBeersRemaining.bind(this);
@@ -103,23 +94,18 @@ class App extends React.Component {
   }
 
   handleAddingNewKeg(newKeg) {
-    let newMasterKegList = this.state.masterKegList.slice();
-    newMasterKegList.push(newKeg);
+    let newMasterKegList = Object.assign({}, this.state.masterKegList, {
+      [newKeg.id]: newKeg
+    });
     this.setState({masterKegList: newMasterKegList});
   }
 
-  handleBeersRemaining(keg) {
-    this.setState({
-      clickedKeg: keg,
-      // beersRemaining: this.state.beersRemaining -= 1
-    });
-    if (keg.id === keg.id){
-      keg.remaining -= 1;
-    }
+  handleBeersRemaining(id) {
+    this.setState({clickedKeg: id});
   }
 
   render() {
-
+    console.log(this.state);
     return (
       <div>
         <style jsx>{`
